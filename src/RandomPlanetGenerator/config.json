@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "RandomPlanetGenerator"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-RandomPlanetGenerator-86ae92a8-20fb-4a15-900d-2760285bc5d2;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
