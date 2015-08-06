@@ -12,35 +12,95 @@
         <h1>@ViewBag.planet.Name <small>Tech Level: @ViewBag.planet.TechLevel</small></h1>
         <h4>Population: @ViewBag.planet.Population</h4>
         <p>@ViewBag.planetstring</p>
-        <p><b>Alliance Member:</b> @ViewBag.planet.AllianceMember</p>
-        <p><b>Political Leaning:</b> @ViewBag.planet.PoliticalLeaning</p>
+        <div class="row">
+            <div class="col-md-4">
+                <b>Alliance Member:</b><br />@ViewBag.planet.AllianceMember
+            </div>
+            <div class="col-md-4">
+                <b>Political Leaning:</b><br />@ViewBag.planet.PoliticalLeaning
+            </div>
+            <div class="col-md-4">
+                <b>Planetary Government:</b><br />
+                @ViewBag.planet.Government
+            </div>
+        </div>
     </div>
 </div>
 <br />
-@if (ViewBag.planet.Cities.Count > 0) {
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Cities</h2>
-            <table class="table table-hover table-responsive table-striped">
-                <thead>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Cities</h2>
+        <table class="table table-hover table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Population</th>
+                    <th>Main Export</th>
+                    <th>Has Spaceport</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var city in ViewBag.planet.Cities) {
                     <tr>
-                        <th>Name</th>
-                        <th>Population</th>
-                        <th>Main Export</th>
-                        <th>Has Spaceport</th>
+                        <td>@city.Name</td>
+                        <td>@city.Population</td>
+                        <td>@city.MainExport</td>
+                        <td>@city.Spaceport</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach (var city in ViewBag.planet.Cities) {
-                        <tr>
-                            <td>@city.Name</td>
-                            <td>@city.Population</td>
-                            <td>@city.MainExport</td>
-                            <td>@city.Spaceport</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                }
+            </tbody>
+        </table>
     </div>
-}
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <h2>Quests</h2>
+        <table class="table table-hover table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Quantity</th>
+                    <th>Objective</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var quest in ViewBag.planet.Quests) {
+                    <tr>
+                        <td>@quest.Type</td>
+                        <td>@quest.Quantity</td>
+                        <td>@quest.Objective</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <h2>NPCs</h2>
+        <table class="table table-hover table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Job</th>
+                    <th>Friendly</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var npc in ViewBag.planet.NPCs) {
+                    <tr>
+                        <td>@npc.Name</td>
+                        <td>@npc.Age</td>
+                        <td>@npc.Gender</td>
+                        <td>@npc.Job</td>
+                        <td>@npc.Friendly</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

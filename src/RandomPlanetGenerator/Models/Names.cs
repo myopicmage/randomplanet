@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace RandomPlanetGenerator.Models {
-    public class Names {
+    public class Names : Possibility {
         Random r = new Random();
 
         public string[] Prefixes = new string[] {
@@ -59,7 +59,7 @@ namespace RandomPlanetGenerator.Models {
             return str;
         }
 
-        public string GetName() {
+        public override string GetPossibility(Random r) {
             var name = "";
 
             if ((r.Next(2) + 1) % 2 == 0) {
@@ -84,6 +84,8 @@ namespace RandomPlanetGenerator.Models {
 
             return ToTitleCase(name);
         }
+
+        public string GetNPCName() => ToTitleCase(GenerateRoot() + " " + GenerateRoot());
 
         public string ToTitleCase(string tofix) {
             var pieces = tofix.Split(' ');
